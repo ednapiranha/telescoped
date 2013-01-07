@@ -209,18 +209,6 @@ ol.messages > li .content-wrapper p a:hover {
     background-color: #d7ed45;
 }
 
-ol.messages > li .content-wrapper p a.tag {
-    background-color: #283436;
-    color: #738e97;
-    font-family: Arial, sans-serif;
-    padding: 0;
-}
-
-ol.messages > li .content-wrapper p a.tag:hover {
-    background-color: #3c4b4e;
-    color: #eee;
-}
-
 ol.messages > li p a.time {
     background-color: transparent;
     color: #738e97;
