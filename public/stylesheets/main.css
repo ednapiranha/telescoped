@@ -110,14 +110,14 @@ body {
 .dashboard-content {
     float: left;
     position: relative;
-    max-width: 800px;
-    min-width: 320px;
+    width: 100%;
 }
 
 ol.messages {
     display: block;
     float: left;
     margin: 10px 0;
+    width: 100%;
 }
 
 ol.messages > li {
