@@ -65,6 +65,13 @@ body {
     font-weight: 100;
 }
 
+h1 {
+    color: #d7ed45;
+    font-family: 'Chunkfive';
+    font-size: 2em;
+    margin: 50px 10px 0;
+}
+
 .home {
     background-color: #3e92b3;
     border-radius: 200px;
@@ -198,6 +205,22 @@ ol.messages > li .content-wrapper p a {
     white-space: nowrap;
 }
 
+ol.messages > li .content-wrapper p a:hover {
+    background-color: #d7ed45;
+}
+
+ol.messages > li .content-wrapper p a.tag {
+    background-color: #283436;
+    color: #738e97;
+    font-family: Arial, sans-serif;
+    padding: 0;
+}
+
+ol.messages > li .content-wrapper p a.tag:hover {
+    background-color: #3c4b4e;
+    color: #eee;
+}
+
 ol.messages > li p a.time {
     background-color: transparent;
     color: #738e97;
@@ -207,10 +230,6 @@ ol.messages > li p a.time {
     font-size: 2em;
     margin-top: 10px;
     opacity: 0.1;
-}
-
-ol.messages > li .content-wrapper p a:hover {
-    background-color: #d7ed45;
 }
 
 ol.messages > li p a.time:hover {
@@ -224,13 +243,17 @@ ol.messages > li p a.time:hover {
         font-size: 1.4em;
     }
 
+    ol.messages {
+        margin-top: 50px;
+    }
+
     ol.messages span.name {
         display: none;
     }
 
     ol.messages > li p {
         font-size: 1em;
-        min-height: 80px;
+        min-height: 63px;
     }
 
     ol.messages > li p .time {

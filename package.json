@@ -15,7 +15,8 @@
     "passport": ">= 0.1.12",
     "passport-appdotnet": ">= 0.1.1",
     "connect-redis": ">= 1.4.4",
-    "requirejs": ">= 2.1.0"
+    "requirejs": ">= 2.1.0",
+    "natural": "0.1.19"
   },
   "devDependencies": {
     "mocha": ">= 1.4.2",

@@ -18,7 +18,6 @@ module.exports = function(app, isLoggedIn, config) {
 
       res.render('index', {
         session: utils.getUser(req),
-        csrf: req.session._csrf,
         analytics: analytics
       });
 
@@ -35,7 +34,6 @@ module.exports = function(app, isLoggedIn, config) {
 
     appnet.myFeed(req, function(err, recentMessages) {
       if (err) {
-        console.log(err)
         res.status(500);
         res.json({ 'error': 'error retrieving your personal feed' });
 
