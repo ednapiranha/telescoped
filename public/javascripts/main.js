@@ -58,7 +58,7 @@ define(['jquery'],
 
   setFeed();
 
-  messages.on('click', '.avatar', function () {
+  messages.on('click', '.avatar, span.name', function () {
     var self = $(this);
 
     currentUrl = self.data('url');
