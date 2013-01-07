@@ -220,6 +220,10 @@ ol.messages > li p a.time:hover {
 }
 
 @media only screen and (max-width: 530px) and (orientation:portrait) {
+    #login {
+        font-size: 1.4em;
+    }
+
     ol.messages span.name {
         display: none;
     }
