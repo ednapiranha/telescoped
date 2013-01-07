@@ -1,0 +1,27 @@
+extend layout
+
+block tabs
+  .tabs
+    a.my-feed.selected(data-url='/my/feed', data-action='my-feed', href='javascript:;', title='My Feed', class='initial') My Feed
+    a.user-mentions(data-url='/user/mentions/#{session.id}', data-action='user-mentions', href='javascript:;', title='Mentions') Mentions
+    a.user-interactions(data-url='/user/interactions/#{session.id}', data-action='user-interactions', href='javascript:;', title='Interact') Interact
+    a.global-feed(data-url='/global/feed', href='javascript:;', data-action='global-feed', title='Global') Global
+
+block content
+  section
+    if session
+      ol.messages(data-url='#{session.url || "/feed"}')
+
+    else
+      ol.messages
+        li
+          a(href='javascript:;', class='user')
+            img(src='/images/logo.png', class='avatar')
+          .content-wrapper
+            p Telescoped is a read-only app.net client for personal and user feeds
+        li
+          a(href='javascript:;', class='user')
+            img(src='/images/logo.png', class='avatar')
+          .content-wrapper
+            p
+              a(href='/auth/appdotnet', id='login') Sign in with app.net

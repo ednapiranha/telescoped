@@ -1,0 +1,220 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html, body {
+    height: 100%;
+    position: relative;
+}
+
+@font-face {
+    font-family: 'Chunkfive';
+    src: url('../fonts/Chunkfive-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #262f32;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+}
+
+.home {
+    background-color: #3e92b3;
+    border-radius: 200px;
+    box-shadow: #111 1px 1px 3px;
+    color: #111;
+    display: block;
+    font-family: Chunkfive;
+    font-size: 2.5em;
+    height: 60px;
+    left: -20px;
+    position: fixed;
+    text-indent: -9999px;
+    top: -20px;
+    width: 60px;
+    z-index: 3;
+}
+
+.home:hover {
+    background-color: #d7ed45;
+    font-weight: 600;
+    line-height: 2em;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 10px;
+}
+
+#login {
+    clear: both;
+    display: inline-block;
+    font-size: 2em;
+    line-height: 1.2em;
+    margin-top: 10px;
+}
+
+#dashboard {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 700px;
+    min-width: 320px;
+    position: relative;
+}
+
+.dashboard-content {
+    float: left;
+    position: relative;
+    max-width: 800px;
+    min-width: 320px;
+}
+
+ol.messages {
+    display: block;
+    float: left;
+    margin: 10px 0;
+}
+
+ol.messages > li {
+    display: block;
+    float: left;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+ol.messages .avatar {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+    width: 100%;
+}
+
+ol.messages .avatar:hover {
+    filter: none;
+    -webkit-filter: none;
+}
+
+ol.messages a.user {
+    display: block;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 20%;
+}
+
+ol.messages span.name {
+    background-color: rgba(95, 133, 148, 0.7);
+    bottom: 10px;
+    color: #9ac3d3;
+    display: block;
+    font-size: 1.15em;
+    left: 0;
+    overflow: hidden;
+    padding: 5px;
+    position: absolute;
+    text-overflow: ellipsis;
+    text-shadow: #466470 1px 1px 1px;
+    width: 98%;
+}
+
+ol.messages > li .content-wrapper {
+    float: left;
+    width: 80%;
+}
+
+ol.messages > li {
+    position: relative;
+}
+
+ol.messages > li p {
+    background-color: #2a3539;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: inset #222e31 0px 2px 2px;
+    color: #738e97;
+    font-size: 1.1em;
+    line-height: 1.27em;
+    min-height: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10px;
+}
+
+ol.messages > li .content-wrapper p a {
+    background-color: #389dc3;
+    color: #134255;
+    font-family: Chunkfive;
+    padding: 0 3px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+ol.messages > li p a.time {
+    background-color: transparent;
+    color: #738e97;
+    display: block;
+    float: right;
+    font-family: Chunkfive;
+    font-size: 2em;
+    margin-top: 10px;
+    opacity: 0.1;
+}
+
+ol.messages > li .content-wrapper p a:hover {
+    background-color: #d7ed45;
+}
+
+ol.messages > li p a.time:hover {
+    background-color: transparent;
+    color: #d7ed45;
+    opacity: 1.0;
+}

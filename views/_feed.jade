@@ -1,0 +1,10 @@
+for message in messages
+  li
+    a(href='javascript:;', class='user')
+      img(src='#{message.author.avatar}', class='avatar', data-url='/#{message.author.username}/feed')
+      span.name(data-url='/#{message.author.username}/feed')= message.author.name
+    .content-wrapper
+      p
+        != message.html
+        a(href='#{message.url}', class='time', target='_blank')= message.created
+      .annotations!= message.annotations
