@@ -218,3 +218,18 @@ ol.messages > li p a.time:hover {
     color: #d7ed45;
     opacity: 1.0;
 }
+
+@media only screen and (max-width: 530px) and (orientation:portrait) {
+    ol.messages span.name {
+        display: none;
+    }
+
+    ol.messages > li p {
+        font-size: 1em;
+        min-height: 80px;
+    }
+
+    ol.messages > li p .time {
+        font-size: 1.8em;
+    }
+}
