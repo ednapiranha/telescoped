@@ -28,7 +28,7 @@ module.exports = function(app, configurations, express) {
     app.use(express.cookieParser());
     app.use(express.session({
       secret: nconf.get('session_secret'),
-      store: new RedisStore({ db: nconf.get('redis_db'), prefix: 'noodleapp' }),
+      store: new RedisStore({ db: nconf.get('redis_db'), prefix: 'telescoped' }),
       cookie: { maxAge: 990000000 } // 1 week-ish
     }));
     app.use(passport.initialize());
@@ -58,17 +58,8 @@ module.exports = function(app, configurations, express) {
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
   });
 
-  app.configure('development', function() {
-    app.set('redisnoodleapp', nconf.get('redis_dev'));
-  });
-
-  app.configure('test', function() {
-    app.set('redisnoodleapp', nconf.get('redis_test'));
-  });
-
   app.configure('prod', function(){
     app.use(express.errorHandler());
-    app.set('redisnoodleapp', nconf.get('redis_prod'));
 
     requirejs.optimize({
       appDir: 'public/',
