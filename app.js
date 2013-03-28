@@ -8,8 +8,6 @@ var nconf = require('nconf');
 var settings = require('./settings')(app, configurations, express);
 var passport = require('passport');
 var AppDotNetStrategy = require('passport-appdotnet').Strategy;
-var noodle = require('./package');
-var utils = require('./lib/utils');
 
 nconf.argv().env().file({ file: 'local.json' });
 
@@ -29,11 +27,12 @@ passport.use(new AppDotNetStrategy({
     scope: 'stream',
     callbackURL: nconf.get('domain') + ':' + nconf.get('authPort') + '/auth/appdotnet/callback'
   },
-  function(accessToken, refreshToken, profile, done) {
+  function (accessToken, refreshToken, profile, done) {
     process.nextTick(function (err) {
       if (!profile.access_token) {
         profile.access_token = accessToken;
       }
+
       return done(err, profile);
     });
   }
@@ -41,8 +40,8 @@ passport.use(new AppDotNetStrategy({
 
 /* Filters for routes */
 
-var isLoggedIn = function(req, res, next) {
-  if (req.session.passport.user) {
+var isLoggedIn = function (req, res, next) {
+  if (req.session && req.session.passport.user) {
     next();
   } else {
     res.redirect('/');
@@ -51,20 +50,7 @@ var isLoggedIn = function(req, res, next) {
 
 /* Routing setup */
 
-require('./routes')(app, isLoggedIn, nconf);
+require('./routes')(app, isLoggedIn);
 require('./routes/auth')(app, passport);
-
-app.get('/404', function(req, res, next){
-  next();
-});
-
-app.get('/403', function(req, res, next){
-  err.status = 403;
-  next(new Error('not allowed!'));
-});
-
-app.get('/500', function(req, res, next){
-  next(new Error('something went wrong!'));
-});
 
 server.listen(process.env.PORT || nconf.get('port'));

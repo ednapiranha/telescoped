@@ -6,6 +6,7 @@ module.exports = function(app, configurations, express) {
   var nconf = require('nconf');
   var passport = require('passport');
   var requirejs = require('requirejs');
+  var utils = require('./lib/utils');
 
   var ONE_DAY = 86400000;
 
@@ -27,12 +28,11 @@ module.exports = function(app, configurations, express) {
     }
     app.use(express.cookieParser());
     app.use(express.session({
-      secret: nconf.get('session_secret'),
-      store: new RedisStore({ db: nconf.get('redis_db'), prefix: 'telescoped' }),
-      cookie: { maxAge: 990000000 } // 1 week-ish
+      secret: nconf.get('session_secret')
     }));
     app.use(passport.initialize());
     app.use(passport.session());
+    app.locals.pretty = true;
     app.use(app.router);
     app.use(function(req, res, next) {
       res.status(404);

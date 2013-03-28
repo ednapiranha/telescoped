@@ -1,30 +1,19 @@
 'use strict';
 
-module.exports = function(app, isLoggedIn, config) {
+module.exports = function(app, isLoggedIn) {
   var appnet = require('../lib/appnet');
   var utils = require('../lib/utils');
 
-  var charLimit = 256;
-
   app.get('/', function(req, res) {
-    var analytics = false;
-
-    if (req.session.passport.user) {
+    if (req.session && req.session.passport.user) {
       req.session.url = '/feed';
 
-      if (config.get('analytics')) {
-        analytics = config.get('analytics');
-      }
-
       res.render('index', {
-        session: utils.getUser(req),
-        analytics: analytics
+        session: utils.getUser(req)
       });
-
     } else {
       res.render('index', {
-        session: false,
-        analytics: analytics
+        session: false
       });
     }
   });
